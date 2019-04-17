@@ -11,7 +11,7 @@ CREATE TABLE `tb_users`
   `password`          VARCHAR(45)   NOT NULL DEFAULT '',
   `is_admin`          TINYINT(4)    NOT NULL DEFAULT '0',
   `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status`            TINYINT(4)    NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
@@ -23,5 +23,6 @@ CREATE TABLE `tb_users`
   KEY `ix_users_06` (`is_admin`,`status`,`id`),
   KEY `ix_users_07` (`uuid`)
 )
-ENGINE=InnoDB AUTO_INCREMENT=13
+ENGINE=InnoDB
+AUTO_INCREMENT=1
 DEFAULT CHARSET=latin1;

@@ -16,8 +16,8 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` 
 PROCEDURE `rpay`.`sp_users_create`(
 	in p_full_name 		varchar(100)
-    , in p_email 		varchar(45)
-    , in p_password 	varchar(45)
+    , IN p_email 		varchar(45)
+    , IN p_password 	varchar(45)
 )
 BEGIN
 
@@ -41,7 +41,7 @@ INSERT INTO
 		, p_full_name
         , p_email
         , (SELECT SHA1(p_password))
-        , 1
+        , 0
         , 1
         , (NOW())
         , (NOW())
