@@ -21,8 +21,10 @@ CREATE TABLE `tb_users`
   KEY `ix_users_04` (`id`,`password`),
   KEY `ix_users_05` (`status`),
   KEY `ix_users_06` (`is_admin`,`status`,`id`),
-  KEY `ix_users_07` (`uuid`)
+  KEY `ix_users_07` (`id`,`uuid`)
 )
 ENGINE=InnoDB
 AUTO_INCREMENT=1
 DEFAULT CHARSET=latin1;
+
+
