@@ -1,5 +1,5 @@
 /**
-  * Updates user's data with the parameters of information.
+  * Updates user's fiscalinformation associated with a user.
   *
   * @author cvaldezissc
   * @param int p_userid [User ID]
@@ -12,11 +12,11 @@
 
 USE `rpay`;
 
-DROP PROCEDURE IF EXISTS `rpay`.`sp_users_update`;
+DROP PROCEDURE IF EXISTS `rpay`.`sp_fiscalinfo_update`;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost`
-PROCEDURE `rpay`.`sp_users_update`(
+PROCEDURE `rpay`.`sp_fiscalinfo_update`(
     IN p_userid                     INT(11)
     , IN p_user_uuid                VARCHAR(50)
     , IN p_rfc                      VARCHAR(13)
@@ -36,8 +36,10 @@ BEGIN
     WHERE
         `user_id` = p_userid
     AND
-        `uuid`=    p_user_uuid
+        `user_uuid`=    p_user_uuid
 ;
+
+    CALL `rpay`.`sp_fiscalinfo_getbyuserid`(p_userid, p_user_uuid);
 
 
 END$$

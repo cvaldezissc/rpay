@@ -9,11 +9,11 @@
 
 USE `rpay`;
 
-DROP PROCEDURE IF EXISTS `rpay`.`sp_users_delete`;
+DROP PROCEDURE IF EXISTS `rpay`.`sp_fiscalinfo_delete`;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost`
-PROCEDURE `rpay`.`sp_users_delete`(
+PROCEDURE `rpay`.`sp_fiscalinfo_delete`(
     IN p_userid                     INT(11)
     , IN p_user_uuid                VARCHAR(50)
 )
@@ -26,11 +26,12 @@ BEGIN
     WHERE
         `user_id` = p_userid
     AND
-        `uuid`=    p_user_uuid
+        `user_uuid`=    p_user_uuid
 ;
 
 
-CALL `rpay`.`sp_users_getbyid`(p_userid);
+
+    CALL `rpay`.`sp_fiscalinfo_getbyuserid`(p_userid, p_user_uuid);
 
 END$$
 DELIMITER ;
