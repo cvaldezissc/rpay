@@ -20,7 +20,7 @@ CREATE DEFINER=`root`@`localhost`
 PROCEDURE `rpay`.`sp_fiscalinfo_create`(
     IN p_userid                     INT(11)
     , IN p_useruuid                 VARCHAR(45)
-    , IN p_rfc   		            VARCHAR(45)
+    , IN p_rfc   		            VARCHAR(13)
     , IN p_businessname 	        VARCHAR(45)
     , IN p_responsiblefullname      VARCHAR(100)
 )

@@ -1,9 +1,8 @@
 /**
-  * Gets a list of the fiscalinformation using the userId and UUID
+  * gets the fiscal information of a user
   *
   * @author cvaldezissc
   * @param int p_user_id [User ID created in the database (returned when a new user is created)]
-  * @param int p_user_uuid [UUID created in the database (returned when a new user is created)]
   * @returns table Result of Query .
   */
 
@@ -16,29 +15,43 @@ DELIMITER $$
 
 CREATE DEFINER=`root`@`localhost`
 PROCEDURE `sp_fiscalinfo_getbyuserid`(
-	IN p_user_id     INT
-	, IN p_user_uuid VARCHAR(40)
+	IN p_user_id int
+	, IN p_user_uuid varchar(40)
 )
 BEGIN
 
-SELECT
-    `tb_fiscalinfo`.`id` AS 'id'
-    ,`tb_fiscalinfo`.`user_id` AS 'user_id'
-    ,`tb_fiscalinfo`.`user_uuid` AS 'uuid'
-    ,`tb_fiscalinfo`.`rfc` AS 'rfc'
-    ,`tb_fiscalinfo`.`business_name` AS 'socialReason'
-    ,`tb_fiscalinfo`.`responsible_fullname` AS 'responsibleFullname'
-    ,`tb_fiscalinfo`.`creation_date`, AS 'created'
-    ,`tb_fiscalinfo`.`modification_date` AS 'lastModified'
-    , `tb_fiscalinfo`.`status` AS 'status'
-FROM
-    `rpay`.`tb_fiscalinfo`  FORCE INDEX(`ix_fiscalinfo_02`)
-WHERE
-    `tb_fiscalinfo`.`id` = p_user_id
-    AND
-    `tb_fiscalinfo`.`user_uuid` = p_user_uuid
 
-;
+    SELECT
+        `tb_fiscalinfo`.`id`,
+        `tb_fiscalinfo`.`user_id`,
+        `tb_fiscalinfo`.`user_uuid`,
+        `tb_fiscalinfo`.`rfc`,
+        `tb_fiscalinfo`.`business_name`,
+        `tb_fiscalinfo`.`responsible_fullname`,
+        `tb_fiscalinfo`.`creation_date`,
+        `tb_fiscalinfo`.`modification_date`,
+        `tb_fiscalinfo`.`status`,
+        `tb_users`.`id`,
+        `tb_users`.`uuid`,
+        `tb_users`.`full_name`,
+        `tb_users`.`email`,
+        `tb_users`.`password`,
+        `tb_users`.`is_admin`,
+        `tb_users`.`creation_date`,
+        `tb_users`.`modification_date`,
+        `tb_users`.`status`
+    FROM `rpay`.`tb_fiscalinfo`
+    FORCE INDEX(`tb_fiscalinfo`.`ix_fiscalinfo_02`)
+    INNER JOIN `rpay`.`tb_users` ON `tb_fiscalinfo`.`id` = `tb_users`.`id`
+    WHERE
+        `tb_fiscalinfo`.`user_id` = 4
+        AND
+        `tb_fiscalinfo`.`user_uuid` = 'a5a74572-63e3-11e9-bb13-dc592bc972de'
+
+    ;
+
+
 
 
 END$$
+DELIMITER ;
