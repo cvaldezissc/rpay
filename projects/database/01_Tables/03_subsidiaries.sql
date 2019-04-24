@@ -1,21 +1,36 @@
+/**
+  * tb_subsidiaries.
+  *
+  * @author cvaldezissc
+  * @purpose Store the subsidiaries of each user
+  */
+
 USE `rpay`;
 
-DROP TABLE IF EXISTS `rpay`.`subsidiaries`;
+DROP TABLE IF EXISTS `rpay`.`tb_subsidiaries`;
 
-CREATE TABLE `subsidiaries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_tax_information` int(11) NOT NULL DEFAULT '0',
-  `subsidiary_name` varchar(13) NULL DEFAULT '',
-  `account` TINYINT(4) NOT NULL DEFAULT '0',
-  `subsidiary_type`
-  `serie` int(11) NOT NULL DEFAULT '0'
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `tb_subsidiaries`
+(
+  `id`                       INT(11)       NOT NULL AUTO_INCREMENT
+  , `fiscalinfo_id`           INT(11)        NOT NULL DEFAULT '0'
+  , `subsidiary_name`         VARCHAR(45)        NULL DEFAULT ''
+  , `account`                 INT(11)        NOT NULL DEFAULT '0'
+  , `subsidiary_type`         INT(11)        NOT NULL DEFAULT '0'
+  , `serie`                   INT(11)        NOT NULL DEFAULT '0'
+  , `creation_date`           DATETIME 		 NOT NULL DEFAULT CURRENT_TIMESTAMP
+  , `modification_date`       DATETIME 		 NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  , `status`                    TINYINT(4)     NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`),
-  KEY `ix_subsidiaries_01` (`email`,`password`,`status`,`is_admin`),
-  KEY `ix_subsidiaries_02` (`is_admin`,`status`,`full_name`),
-  KEY `ix_subsidiaries_03` (`id`,`is_admin`),
-  KEY `ix_subsidiaries_04` (`id`,`password`),
-  KEY `ix_subsidiaries_05` (`status`),
-  KEY `ix_subsidiaries_06` (`is_admin`,`status`,`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `fiscalinfoid_UNIQUE` (`fiscalinfo_id`),
+  KEY `ix_subsidiaries_01` (`serie`),
+  KEY `ix_subsidiaries_02` (`subsidiary_type`, `account`, `serie` ),
+  KEY `ix_subsidiaries_03` (`status`)
+)
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+DEFAULT CHARSET=latin1;
+
+
+
+
+
