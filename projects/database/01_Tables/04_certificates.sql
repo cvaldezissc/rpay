@@ -11,16 +11,16 @@ DROP TABLE IF EXISTS `rpay`.`tb_certificates`;
 
 CREATE TABLE `tb_certificates`
 (
-  `id`                      INT(11)             NOT NULL AUTO_INCREMENT
-  , `user_id`               INT(11)             NOT NULL DEFAULT '0'
-  , `cer_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''
-  , `key_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''
-  , `privatekey_password`   VARCHAR(50)         NOT NULL DEFAULT ''
-  , `cer_file`              JSON                    NULL DEFAULT NULL
-  , `key_file`              JSON                    NULL DEFAULT NULL
-  , `creation_date`         DATETIME 	        NOT NULL DEFAULT CURRENT_TIMESTAMP
-  , `modification_date`     DATETIME 	        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-  , `status`                TINYINT(4)          NOT NULL DEFAULT '1',
+  `id`                      INT(11)             NOT NULL AUTO_INCREMENT                                         COMMENT 'Numeric Identifier'
+  , `user_id`               INT(11)             NOT NULL DEFAULT '0'                                            COMMENT 'User ID to be related with'
+  , `cer_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''                                             COMMENT 'link to .cer file'
+  , `key_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''                                             COMMENT 'link to .key file'
+  , `privatekey_password`   VARCHAR(50)         NOT NULL DEFAULT ''                                             COMMENT 'main password to be used to decrypt the last two files '
+  , `cer_file`              JSON                    NULL DEFAULT NULL                                           COMMENT 'If needed this will be the file inside a JSON structure'
+  , `key_file`              JSON                    NULL DEFAULT NULL                                           COMMENT 'If needed this will be the file inside a JSON structure'
+  , `creation_date`         DATETIME 	        NOT NULL DEFAULT CURRENT_TIMESTAMP                              COMMENT 'When was it created'
+  , `modification_date`     DATETIME 	        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'When was it modified'
+  , `status`                TINYINT(4)          NOT NULL DEFAULT '1'                                            COMMENT 'Status for logical deletion',
   PRIMARY KEY (`id`),
   UNIQUE KEY `cerfile_UNIQUE` (`cer_file_url`),
   KEY `ix_certificates_01` (`user_id`),

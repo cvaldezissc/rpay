@@ -1,18 +1,28 @@
+/**
+  * tb_users.
+  *
+  * @author cvaldezissc
+  * @purpose To be the repository of users (People who are directly our customers)
+  */
+
+
 USE `rpay`;
 
 DROP TABLE IF EXISTS `rpay`.`tb_users`;
 
 CREATE TABLE `tb_users`
 (
-  `id`                INT(11)       NOT NULL AUTO_INCREMENT,
-  `uuid`              VARCHAR (40)  NOT NULL DEFAULT '',
-  `full_name`         VARCHAR(100)  NOT NULL DEFAULT '',
-  `email`             VARCHAR(45)   NOT NULL DEFAULT '',
-  `password`          VARCHAR(45)   NOT NULL DEFAULT '',
-  `is_admin`          TINYINT(4)    NOT NULL DEFAULT '0',
-  `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status`            TINYINT(4)    NOT NULL DEFAULT '1',
+  `id`                INT(11)       NOT NULL AUTO_INCREMENT                                             COMMENT 'Unique Numeric ID to identify the user'
+  , `uuid`              VARCHAR (40)      NULL DEFAULT ''                                               COMMENT 'Unique Identifier as a second control to identify the user'
+  , `full_name`         VARCHAR(100)  NOT NULL DEFAULT ''                                               COMMENT 'Calculated Column to join firstname and lastname'
+  , `firstname`         VARCHAR(50)   NOT NULL DEFAULT ''                                               COMMENT 'First name of the user'
+  , `lastname`          VARCHAR(50)   NOT NULL DEFAULT ''                                               COMMENT 'Last name of the user'
+  , `email`             VARCHAR(45)   NOT NULL DEFAULT ''                                               COMMENT 'Email of the user, it will be used in the login'
+  , `password`          VARCHAR(45)   NOT NULL DEFAULT ''                                               COMMENT 'Password field, rhis will be encrypted under SHA-1 Algorythm'
+  , `is_admin`          TINYINT(4)    NOT NULL DEFAULT '0'                                              COMMENT 'Flag to define if the user is an admin or not'
+  , `creation_date`     DATETIME 	  NOT NULL DEFAULT CURRENT_TIMESTAMP                                COMMENT 'When was the user Created'
+  , `modification_date` DATETIME 	  NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP    COMMENT 'When a modification is made, here comes the update of datetime'
+  , `status`            TINYINT(4)    NOT NULL DEFAULT '1'                                              COMMENT 'For logical deletion',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `ix_users_01` (`email`,`password`,`status`,`is_admin`),

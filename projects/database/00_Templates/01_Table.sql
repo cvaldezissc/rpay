@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS `[DB]`.`tb_[TABLENAME]`;
 
 CREATE TABLE `[TABLENAME]`
 (
-  `id`                INT(11)       NOT NULL AUTO_INCREMENT,
+  `id`                INT(11)       NOT NULL AUTO_INCREMENT                         COMMENT ''
 
       /*
             ALL THE REQUIRED FIELDS HERE
@@ -19,9 +19,9 @@ CREATE TABLE `[TABLENAME]`
             SEPARATED BY COMMAS
       */
 
-  `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status`            TINYINT(4)    NOT NULL DEFAULT '1',
+  , `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP          COMMENT ''
+  , `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ''
+  , `status`            TINYINT(4)    NOT NULL DEFAULT '1' COMMENT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`[UNIQUE_FIELD]`),
   KEY `ix_[TABLENAME]_01` (`[FIELD1]`, ...),
