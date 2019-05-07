@@ -21,7 +21,7 @@ CREATE TABLE `tb_fiscalinfo`
   , `status`                  TINYINT(4)    NOT NULL DEFAULT '1'                                              COMMENT 'Status for logical deletion' ,
   PRIMARY KEY (`id`),
   UNIQUE KEY `rfc_UNIQUE` (`rfc`),
-  KEY `ix_fiscalinfo_02` (`user_id`,`user_uuid`),
+  KEY `ix_fiscalinfo_02` (`user_uuid`),
   KEY `ix_fiscalinfo_03` (`status`),
   KEY `ix_fiscalinfo_04` (`responsible_fullname`)
 )
