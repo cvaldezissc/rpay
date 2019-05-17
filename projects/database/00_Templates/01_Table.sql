@@ -1,7 +1,7 @@
 /**
   * [TABLENAME].
   *
-  * @author [AUTHOR]
+  * @author cvaldezissc
   * @purpose [PURPOSE OF THE TABLE]
   */
 
@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS `[DB]`.`tb_[TABLENAME]`;
 
 CREATE TABLE `[TABLENAME]`
 (
-  `id`                INT(11)       NOT NULL AUTO_INCREMENT                         COMMENT ''
+  `id`                INT(11)       NOT NULL AUTO_INCREMENT                                            COMMENT 'Auto generated ID by the DB Engine'
 
       /*
             ALL THE REQUIRED FIELDS HERE
@@ -19,9 +19,9 @@ CREATE TABLE `[TABLENAME]`
             SEPARATED BY COMMAS
       */
 
-  , `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP          COMMENT ''
-  , `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ''
-  , `status`            TINYINT(4)    NOT NULL DEFAULT '1' COMMENT '',
+  , `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP                             COMMENT 'Creation date when the item is created by first time'
+  , `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the registry is modified, we can also take it with the last modified datetime '
+  , `status`            TINYINT(4)      NOT NULL DEFAULT '1'                                           COMMENT 'Determine if the item is logically deleted 1=Active; 0=Inactive',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`[UNIQUE_FIELD]`),
   KEY `ix_[TABLENAME]_01` (`[FIELD1]`, ...),

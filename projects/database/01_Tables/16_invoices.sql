@@ -14,6 +14,7 @@ CREATE TABLE `tb_invoices`
   `id`                  INT(11)         NOT NULL AUTO_INCREMENT                                            COMMENT 'Unique Invoice ID'
   , `user_id`           INT(11)         NOT NULL                                                           COMMENT 'User ID that generates the invoice'
   , `customer_id`       INT(11)         NOT NULL                                                           COMMENT 'Customer ID (of the userID) which the invoice is generated to '
+  , `fiscalinfo_id`     INT(11)         NOT NULL                                                           COMMENT 'info that has all the userID data including RFC, name, address, etc'
   , `internal_uuid`     VARCHAR(31)     NOT NULL                                                           COMMENT 'The generated UUID for the internal control'
   , `products`          JSON            NOT NULL                                                           COMMENT 'The list of the purchased products/services that are included in the invoice'
   , `taxes`             INT(11)         NOT NULL                                                           COMMENT 'Taxes applied to the subtotal to calculate total'

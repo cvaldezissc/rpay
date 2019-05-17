@@ -16,6 +16,7 @@ CREATE TABLE `tb_fiscalinfo`
   , `rfc`                     VARCHAR(13)       NULL DEFAULT ''                                               COMMENT 'RFC by the SAT'
   , `business_name`           VARCHAR(100)  NOT NULL DEFAULT ''                                               COMMENT 'Name of the business like Business SA'
   , `responsible_fullname`    VARCHAR(100)  NOT NULL DEFAULT ''                                               COMMENT 'Name of the person which is going to be the responsible of managing the account'
+  , `persontype`              VARCHAR(10)   NOT NULL DEFAULT ''                                               COMMENT 'Field that will contain if the person is physiscal or moral F = physycal, M = moral, U=Unknown'
   , `creation_date`           DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP                                COMMENT 'When was this information is added'
   , `modification_date`       DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP    COMMENT 'When a modification is made, here comes the new datetime'
   , `status`                  TINYINT(4)    NOT NULL DEFAULT '1'                                              COMMENT 'Status for logical deletion' ,
