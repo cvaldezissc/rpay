@@ -28,8 +28,8 @@ CREATE TABLE `tb_invoices`
   KEY `ix_invoices_01` (`user_id`, `customer_id`),
   KEY `ix_invoices_02` (`creation_date`, `modification_date`),
   KEY `ix_invoices_03` (`status`),
-  KEY `ix_invoices_03` (`amount`),
-  KEY `ix_invoices_03` (`internal_uuid`)
+  KEY `ix_invoices_04` (`amount`),
+  KEY `ix_invoices_05` (`internal_uuid`)
 )
 ENGINE=InnoDB
 AUTO_INCREMENT=1

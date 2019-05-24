@@ -17,7 +17,7 @@ CREATE TABLE `tb_cat_unitkey`
   , `description`       TEXT                NULL                                                           COMMENT 'Description of the unit of measurement (Descripcion)'
   , `note`              VARCHAR(250)    NOT NULL DEFAULT ''                                                COMMENT 'A little note if needed '
   , `valid_from`        DATETIME        NOT NULL                                                           COMMENT 'To add any observation or point of view related with this measurement unit'
-  , `valid_to`          DATETIME        NOT NULL DEFAULT ''                                                COMMENT 'Date when begins to be valid'
+  , `valid_to`          DATETIME        NOT NULL                                                           COMMENT 'Date when begins to be valid'
   , `symbol`            VARCHAR(15)     NOT NULL DEFAULT ''                                                COMMENT 'Date when finishes from being valid'
   , `creation_date`     DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP                                 COMMENT 'Creation date when the item is created by first time'
   , `modification_date` DATETIME 		NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP     COMMENT 'When the registry is modified, we can also take it with the last modified datetime '
