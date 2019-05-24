@@ -15,9 +15,11 @@ CREATE TABLE `tb_certificates`
   , `user_id`               INT(11)             NOT NULL DEFAULT '0'                                            COMMENT 'User ID to be related with'
   , `cer_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''                                             COMMENT 'link to .cer file'
   , `key_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''                                             COMMENT 'link to .key file'
+  , `sdg_file_url`          VARCHAR(150)        NOT NULL DEFAULT ''                                             COMMENT 'link to .sdg file'
   , `privatekey_password`   VARCHAR(50)         NOT NULL DEFAULT ''                                             COMMENT 'main password to be used to decrypt the last two files '
   , `cer_file`              JSON                    NULL DEFAULT NULL                                           COMMENT 'If needed this will be the file inside a JSON structure'
   , `key_file`              JSON                    NULL DEFAULT NULL                                           COMMENT 'If needed this will be the file inside a JSON structure'
+  , `sdg_file`              JSON                    NULL DEFAULT NULL                                           COMMENT 'If needed this will be the file inside a JSON structure'
   , `creation_date`         DATETIME 	        NOT NULL DEFAULT CURRENT_TIMESTAMP                              COMMENT 'When was it created'
   , `modification_date`     DATETIME 	        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'When was it modified'
   , `status`                TINYINT(4)          NOT NULL DEFAULT '1'                                            COMMENT 'Status for logical deletion',
