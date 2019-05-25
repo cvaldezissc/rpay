@@ -28,7 +28,7 @@ $ cp config/default_example.json config/default.json
 $ nano config/default.json
 
 $ npm install
-$ node index.js
+$ node app.js
 ```
 
 

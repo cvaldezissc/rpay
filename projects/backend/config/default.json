@@ -1,0 +1,13 @@
+{
+
+    "db_dev":
+    {
+      "host": "prod-db-server"
+    },
+
+    "db_prod":
+    {
+      "host": "prod-db-server"
+    }
+
+}
