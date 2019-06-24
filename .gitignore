@@ -1,5 +1,6 @@
 
 projects/backend/node_modules
+projects/backend/node_modules/*
 projects/backend/config/*
 
 # Created by https://www.gitignore.io/api/webstorm

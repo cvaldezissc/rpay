@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "5bea3703-297e-4dae-bd6d-488cd499df5e",
+		"name": "NodeJS_SecureAPI",
+		"description": "Endpoints to test rpay backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[POSTS] CreatePost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMTBjODE0MDAxYTIxMzcxZmNiOTg1NyJ9.rhKmCl5dcPjZcp5CrTmlR8RS-k3CUTRWv3hwgai1kUw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Post from the User 3 and is to demonstrate that is completely relational relationships ever and ever",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/carlos/Documents/avatar_viejon.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POSTS] Index GetAll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMTBjZWE2MWJiODIxMzc3OTk5NjZmZCJ9.2KPB-Tk7_oJfiET5lQyO-3TdytGvLoE-cfRFXKyU220",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/post/5d10caeb1bb82137799966fa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"5d10caeb1bb82137799966fa"
+					]
+				},
+				"description": "Gets all the posts"
+			},
+			"response": []
+		},
+		{
+			"name": "[POSTS] Update posts",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMGZhOGQxYWY1NzkyMTc5N2M4OGRiNyJ9.hCAzDZNwHjA51uUU1YvpcSdSbkwmoM8xUkKkHqjbJyM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"this is the modified description part 2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/post/5d0facc7533208184affc7b3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"5d0facc7533208184affc7b3"
+					]
+				},
+				"description": "http://localhost:8000/api/post/5d0879eebd7c8732b4195911"
+			},
+			"response": []
+		},
+		{
+			"name": "[POSTS] Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMGZhOGQxYWY1NzkyMTc5N2M4OGRiNyJ9.hCAzDZNwHjA51uUU1YvpcSdSbkwmoM8xUkKkHqjbJyM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"The main\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/post/5d0fb678f220381994181ec1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"5d0fb678f220381994181ec1"
+					]
+				},
+				"description": "http://localhost:8000/api/post/5d0879edbd7c8732b4195910"
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTH] Signup User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"User 4\",\n\t\"email\": \"user4@gmail.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				},
+				"description": "http://localhost:8000/api/auth/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTH] Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"user3@gmail.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[AUTH] Me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMGZhOGQxYWY1NzkyMTc5N2M4OGRiNyJ9.hCAzDZNwHjA51uUU1YvpcSdSbkwmoM8xUkKkHqjbJyM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/auth/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"me"
+					]
+				},
+				"description": "http://localhost:8000/api/auth/me"
+			},
+			"response": []
+		},
+		{
+			"name": "[POSTS] GetByID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMGZhOGQxYWY1NzkyMTc5N2M4OGRiNyJ9.hCAzDZNwHjA51uUU1YvpcSdSbkwmoM8xUkKkHqjbJyM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/post/5d0facc7533208184affc7b3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						"5d0facc7533208184affc7b3"
+					]
+				},
+				"description": "http://localhost:8000/api/post/5d0facc7533208184affc7b3"
+			},
+			"response": []
+		},
+		{
+			"name": "[POSTS] GetAll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMGZhOGQxYWY1NzkyMTc5N2M4OGRiNyJ9.hCAzDZNwHjA51uUU1YvpcSdSbkwmoM8xUkKkHqjbJyM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/post/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[USERS] FollowUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMTBjN2RiMDAxYTIxMzcxZmNiOTg1NSJ9.ya2LOmJXqh2JmBnyvdFK03HodvtYGHzFmSPJYkE6MKM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/follow/5d10c814001a21371fcb9857",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"follow",
+						"5d10c814001a21371fcb9857"
+					]
+				},
+				"description": "http://localhost:8000/api/follow/5d10c814001a21371fcb9857"
+			},
+			"response": []
+		},
+		{
+			"name": "[POSTS] Index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjVkMTBjN2RiMDAxYTIxMzcxZmNiOTg1NSJ9.ya2LOmJXqh2JmBnyvdFK03HodvtYGHzFmSPJYkE6MKM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/post/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"post",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
