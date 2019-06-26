@@ -9,6 +9,6 @@ router.post("/login", authController.login);
 
 router.post("/signup", [isEmail, hasPassword, hasName], authController.signup);
 
-router.get("/me", passportJWT.authenticate(), authController.meBlank);
+router.get("/me", passportJWT.authenticate(), authController.meWithRedis);
 
 module.exports = router;
