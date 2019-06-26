@@ -2,7 +2,7 @@ const jwt = require('jwt-simple');
 const config = require('../config');
 const User = require('../models/user');
 const validationHandler = require('../validations/validationHandler');
-
+const redisClient = require('../config/redis').getClient();
 
 exports.login = async(req, res, next) => {
     try{
@@ -76,19 +76,20 @@ exports.meWithRedis = async(req, res, next) => {
 
     try{
 
-        const cacheValue = await redisClient.hget("users", req.body.user);
+        const cacheValue = await redisClient.hget("users", req.user.id);
+        let user = undefined;
 
         if(cacheValue){
-            console.log("Getting the user information from RedisCache");
+            console.log("Getting from Redis");
             const doc = JSON.parse(cacheValue);
             const cacheUser = new User(doc);
             return res.send(cacheUser);
         }
 
-        console.log("Getting from the MONGO DB");
-        const user = await User.findById(req.user);
+        console.log("Getting from the DB");
+        user = await User.findById(req.user);
         redisClient.hset("users", req.user.id, JSON.stringify(user));
-
+        
         return res.send(user);
 
     } catch(err) {
