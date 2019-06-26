@@ -5,9 +5,21 @@ const PostModel = require('../models/post');
 exports.index = async (req, res) => {
     
     try{
+        //query is the param used in the URL after '?' and put like a param
+        const pagination = req.query.pagination 
+            ? parseInt(req.query.pagination) 
+            : 5;
+
+        const page = req.query.page 
+            ? parseInt(req.query.page) 
+            : 1;
+
+        
         const posts = await PostModel.find({
             user: { $in: [...req.user.following, req.user.id] }
         })
+        .skip((page - 1) * pagination)
+        .limit(pagination)
         .populate("user")
         .sort({createdAt: -1});
 
