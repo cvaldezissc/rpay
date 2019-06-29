@@ -1,7 +1,7 @@
 
 projects/backend/node_modules
-projects/backend/node_modules/*
-projects/backend/config/*
+.idea/
+node_modules/
 
 # Created by https://www.gitignore.io/api/webstorm
 # Edit at https://www.gitignore.io/?templates=webstorm
