@@ -1,0 +1,3 @@
+/**
+ * Payments and Actions Model
+ */

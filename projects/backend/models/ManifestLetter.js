@@ -1,0 +1,3 @@
+/**
+ * ManifestLetter Model
+ */

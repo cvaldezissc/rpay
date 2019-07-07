@@ -1,0 +1,3 @@
+/**
+ * Subsidiaries Model
+ */
