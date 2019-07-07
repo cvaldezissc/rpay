@@ -1,0 +1,3 @@
+/**
+ * Logos Model
+ */
